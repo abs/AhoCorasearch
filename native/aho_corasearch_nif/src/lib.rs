@@ -2,7 +2,7 @@ use daachorse::{
     charwise::{CharwiseDoubleArrayAhoCorasick, CharwiseDoubleArrayAhoCorasickBuilder},
     MatchKind,
 };
-use rustler::{Atom, Env, Error, ResourceArc, Term};
+use rustler::{Atom, Error, Resource, ResourceArc};
 
 rustler::atoms! {
     ok,
@@ -17,6 +17,9 @@ struct TreeResource {
     pub match_kind: MatchKind,
     pub tree: Tree,
 }
+
+#[rustler::resource_impl]
+impl Resource for TreeResource {}
 
 struct Tree {
     aho: CharwiseDoubleArrayAhoCorasick<usize>,
@@ -114,22 +117,4 @@ fn downcase(string: String) -> String {
     return string.to_lowercase()
 }
 
-fn load(env: Env, _info: Term) -> bool {
-    rustler::resource!(TreeResource, env);
-    true
-}
-
-rustler::init!(
-    "Elixir.AhoCorasearch.Native",
-    [
-        build_tree,
-        leftmost_find_iter,
-        find_overlapping_iter,
-        find_iter,
-        get_match_kind,
-        tree_heap_bytes,
-        downcase
-
-    ],
-    load = load
-);
+rustler::init!("Elixir.AhoCorasearch.Native");

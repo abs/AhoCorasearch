@@ -15,11 +15,14 @@ defmodule AhoCorasearch.WordSearch do
     )
   end
 
-  @re :re.compile(~c"[[:punct:][:space:]]", [:unicode]) |> then(fn {:ok, re} -> re end)
+  defp word_boundary_regex do
+    {:ok, re} = :re.compile(~c"[[:punct:][:space:]]", [:unicode])
+    re
+  end
 
   defp word_boundary_indexes(string) do
     # Find all indexes of non-word characters
-    :re.run(string, @re, [:global, {:capture, :all, :index}])
+    :re.run(string, word_boundary_regex(), [:global, {:capture, :all, :index}])
     |> then(fn
       :nomatch -> []
       {:match, match} -> match
