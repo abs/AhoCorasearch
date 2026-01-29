@@ -3,22 +3,22 @@ defmodule AhoCorasearch.MixProject do
 
   def project do
     [
-      app: :aho_corasearch,
+      app: :aho_corasick_search,
       description:
         "Elixir lib for Aho-Corasick string searching. Uses a Rust-based NIF for greatly improved performance.",
       version: "0.3.0",
       elixir: "~> 1.15",
       name: "AhoCorasearch",
-      source_url: "https://github.com/pejrich/AhoCorasearch",
+      source_url: "https://github.com/abs/AhoCorasearch",
       docs: [
         main: "AhoCorasearch",
         extras: ["Usage.md"]
       ],
       package: [
-        name: "aho_corasearch",
+        name: "aho_corasick_search",
         licenses: ["MIT"],
-        links: %{"GitHub" => "https://github.com/pejrich/AhoCorasearch"},
-        source_url: "https://github.com/pejrich/AhoCorasearch",
+        links: %{"GitHub" => "https://github.com/abs/AhoCorasearch"},
+        source_url: "https://github.com/abs/AhoCorasearch",
         files: ~w(lib priv native .formatter.exs mix.exs README* LICENSE*
                  CHANGELOG*)
       ],
