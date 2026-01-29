@@ -30,3 +30,9 @@ aho_corasearch-*.tar
 .DS_Store
 
 .tool-versions
+
+# Nix
+.nix-mix*/
+.nix-hex*/
+.direnv/
+result
