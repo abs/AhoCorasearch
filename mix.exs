@@ -6,7 +6,7 @@ defmodule AhoCorasearch.MixProject do
       app: :aho_corasick_search,
       description:
         "Elixir lib for Aho-Corasick string searching. Uses a Rust-based NIF for greatly improved performance.",
-      version: "0.3.0",
+      version: "0.3.1",
       elixir: "~> 1.15",
       name: "AhoCorasearch",
       source_url: "https://github.com/abs/AhoCorasearch",
