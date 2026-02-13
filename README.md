@@ -13,7 +13,7 @@ by adding `aho_corasick_search` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:aho_corasick_search, "~> 0.3.0"}
+    {:aho_corasick_search, "~> 0.3.1"}
   ]
 end
 ```
